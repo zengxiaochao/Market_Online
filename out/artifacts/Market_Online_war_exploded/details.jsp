@@ -7,24 +7,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link id="css" rel="stylesheet" type="text/css" href="./CSS/others.css"  />
 
 <html>
 <head>
     <title>商品详情</title>
+    <link rel="stylesheet" href="./CSS/details.css">
+    <script charset="utf-8" type="text/javascript" src="./js/details.js"></script>
+
 </head>
-<script>
-    function click_indent()
-    {
-        var href = "indent.jsp?product_name=te&&a=1&&b=2";
-        window.location.href = href;
-    }
-</script>
 <body>
 
 
     <div style="width: 100%;height: 100%;">
-
+        <div style="float: left;width: 100%;height: 100px;background-color: grey;">
+            <%--            页面上方留白--%>
+        </div>
         <div style="float: left;width: 20%;height: 1000px;background-color: aqua;">
             <!--左边栏空白占位  -->
         </div>
@@ -32,55 +29,45 @@
             <%
                 Goods g = GoodsDao.goods_query(request.getParameter("product_name"));
                 String goods_name = g.getGoods_name();
+                String goods_details_text = g.getDetails_text();
+                String goods_spec = g.getSpec();
+                int product_id = g.getProject_id();
             %>
-            <div style="float: left;width: 100%;height: 100px;background-color: grey;">
-            <%--            商品上方留白--%>
+            <div style="float: left;width: 100%;height: 100px;">
+                <%--            商品上方留白--%>
             </div>
-            <div style="float: left;width: 100%;height: 400px;">
-                <%--
-                左边商品状态
-                --%>
-                <div style="text-align:center;float: left;width: 50%;height: 300px;">
-                    <div>
-                        <img src="<%=g.getGoods_url(goods_name) %>" style="width: 30%;">
+            <div class="center_con clearfix" style="float: left;width: 100%;height: 600px;">
+                <div class="main_menu fl"><img src="<%=g.getIcon_url() %>"></div>
+                <div class="goods_detail_list fr">
+                    <h3 id="goods_name"><%=goods_name %></h3>
+                    <p><%=goods_details_text%></p>
+                    <div class="prize_bar">
+                        <div  class="show_prize fl">￥<em id="show_prize"><%=g.getPrice() %></em></div>
+                        <div class="show_unit fl">单位：<%=goods_spec%></div>
                     </div>
-                    <div>
-                        <p><%=goods_name %></p>
-                        <p>销量：<%=g.getSales() %></p>
-                        <p>库存：<span style="color:green"><%=g.getNum() %></span></p>
-                        <p>价格：￥<%=g.getPrice() %></p>
+                    <div class="goods_num clearfix">
+                        <div class="num_name fl">数量：</div>
+                        <div class="num_add fl">
+                            <input id="buy_num" type="text" class="num_show fl" name="buy_num" oninput="num_change()" maxlength="4" value="1">
+                            <a class="add fr" onclick="num_add()">+</a>
+                            <a class="minus fr" onclick="num_minus()">-</a>
+                        </div>
+                    </div>
+                    <div class="total">总价：<em>￥</em><em id="all_prize"><%=g.getPrice() %></em></div>
+                    <div class="operate_btn" onclick="buy()">
+                        <a class="buy_btn">立即购买</a>
                     </div>
                 </div>
-                <%--
-                右边按钮
-                --%>
-                <div style="text-align:center;float: left;width: 50%;height: 300px;background-color: chartreuse;">
-                    <br><br>
-                    <h3>购买数量</h3>
-                    <input type="text" name="num" size="2"  maxlength="3" value="1" style="border: 1px solid #ccc;padding: 7px 0px;padding-left:5px;">
-                    <br><br>
-                    <button class="button_1" onclick="click_indent()">立即购买</button>
-                </div>
             </div>
-
-
             <div style="text-align:center;float: left;width: 100%;height: 600px;">
                 <h1>商品详情：</h1>
-                <img src="<%=g.getGoods_url(goods_name+"details") %>" style="width: 80%;">
-            </div>
 
-<%--            <% String name = "./image/"+request.getParameter("product_name")+".jpg"; %>--%>
-<%--            <div style="color: #fff;padding: 50px;--%>
-<%--                    font-size: 15px;height: 60px;--%>
-<%--                    background-image: url(<%=name %>);">--%>
-<%--            </div>--%>
-<%--            <div class="bodyBox" >--%>
-<%--                <p>aaa</p>--%>
-<%--                <p>销量：<%=g.getSales() %></p>--%>
-<%--                <p>库存：<span style="color:green"><%=g.getNum() %></span></p>--%>
-<%--                <p>价格：￥<%=g.getPrice() %></p>--%>
-<%--            </div>--%>
+                <img src="<%=g.getDetails_img_url() %>" style="width: 80%;">
+                <p id="product_id"><%=product_id%></p>
+            </div>
         </div>
+
+
 
         <div style="float: left;width: 20%;height: 1000px;background-color: hotpink;text-align:center;">
             <div>

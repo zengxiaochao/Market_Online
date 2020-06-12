@@ -11,6 +11,40 @@ import java.util.List;
 public class GoodsDao {
 
     /*
+     * 根据编号查找货物
+     * */
+    public static Goods goods_query_id(int id) {
+        Connection c = null;
+        try {
+            c = Connect_Db.getConnection();
+            String sql = "select * from goods where goods_id=?";
+            PreparedStatement pst = c.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                Goods g = new Goods();
+                g.setGoods_name(rs.getString("goods_name"));
+                g.setPrice(rs.getDouble("price"));
+                g.setNum(rs.getInt("num"));
+                g.setProject_id(rs.getInt("goods_id"));
+                g.setProject_deleted(rs.getString("goods_deleted"));
+                g.setSales(rs.getInt("sales"));
+                g.setDetails_img_url(rs.getString("details_img_url"));
+                g.setDetails_text(rs.getString("details_text"));
+                g.setIcon_url(rs.getString("icon_url"));
+                g.setSpec(rs.getString("spec"));
+                return g;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Connect_Db.closeConnection(c);
+        }
+    }
+    /*
      * 根据名字查找货物
      * */
     public static Goods goods_query(String name) {
@@ -26,7 +60,13 @@ public class GoodsDao {
                 g.setGoods_name(rs.getString("goods_name"));
                 g.setPrice(rs.getDouble("price"));
                 g.setNum(rs.getInt("num"));
+                g.setProject_id(rs.getInt("goods_id"));
+                g.setProject_deleted(rs.getString("goods_deleted"));
                 g.setSales(rs.getInt("sales"));
+                g.setDetails_img_url(rs.getString("details_img_url"));
+                g.setDetails_text(rs.getString("details_text"));
+                g.setIcon_url(rs.getString("icon_url"));
+                g.setSpec(rs.getString("spec"));
                 return g;
             } else {
                 return null;
@@ -56,6 +96,12 @@ public class GoodsDao {
                 g.setPrice(rs.getDouble("price"));
                 g.setNum(rs.getInt("num"));
                 g.setSales(rs.getInt("sales"));
+                g.setDetails_img_url(rs.getString("details_img_url"));
+                g.setDetails_text(rs.getString("details_text"));
+                g.setIcon_url(rs.getString("icon_url"));
+                g.setSpec(rs.getString("spec"));
+                g.setProject_id(rs.getInt("goods_id"));
+                g.setProject_deleted(rs.getString("goods_deleted"));
                 list.add(g);
             }
             return list;

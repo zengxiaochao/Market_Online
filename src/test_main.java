@@ -7,7 +7,7 @@ public class test_main {
             Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序
             System.out.println("加载驱动成功！");
         }
-        catch (Exception e) {
+        catch (Exception e) { 
             System.out.print("加载驱动失败！");
             e.printStackTrace();
         }

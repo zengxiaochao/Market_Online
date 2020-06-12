@@ -9,6 +9,43 @@ public class Indent {
     String goods_kind;
     String user_name;
     String user_address;
+    String user_address_all;
+    String tel;
+    String address_who;
+    String goods_num;
+
+    public String getGoods_num() {
+        return goods_num;
+    }
+
+    public void setGoods_num(String goods_num) {
+        this.goods_num = goods_num;
+    }
+
+    public String getUser_address_all() {
+        return user_address_all;
+    }
+
+    public void setUser_address_all(String user_address_all) {
+        this.user_address_all = user_address_all;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getAddress_who() {
+        return address_who;
+    }
+
+    public void setAddress_who(String address_who) {
+        this.address_who = address_who;
+    }
+
     public String getUser_name() {
         return user_name;
     }

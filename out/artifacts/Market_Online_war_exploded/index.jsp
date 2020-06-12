@@ -9,6 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link id="css" rel="stylesheet" type="text/css" href="./CSS/index.css"  />
+<script charset="utf-8" type="text/javascript" src="./js/index.js"></script>
 <html>
   <head>
     <title>零食商城</title>
@@ -56,7 +57,7 @@
                 String goods_name = g.getGoods_name();
               %>
                 <div class="cardBox" onclick="click_line('<%=goods_name %>')">
-                  <div class="headerBox" style="background-image: url(<%=g.getGoods_url(goods_name) %>);">
+                  <div class="headerBox" style="background-image: url(<%=g.getIcon_url() %>);">
 <%--                    <p><%=g.getGoods_name() %></p>--%>
                   </div>
                   <div class="bodyBox" >
@@ -87,8 +88,8 @@
                 <br>
                 <button type="submit">登&emsp;陆</button>
                 <br>
-                <button type="submit">注&emsp;册</button>
               </form>
+                <button onclick="displayWindow()">注&emsp;册</button>
             </div>
           <% }
           else{
@@ -96,12 +97,8 @@
             <div>
 
                 <div style="">
-                    <a href="Logout" >
+                    <a href="myindent.jsp" >
                         查询我的订单
-                    </a>
-
-                    <a href="Logout">
-                        更改个人信息
                     </a>
                     <a href="Logout">
                         注销
@@ -120,13 +117,32 @@
     </div>
 
 
+<%--  注册弹窗--%>
+    <!--悬浮窗口-->
+    <div id="window" class="window_css" style="text-align:center;">
+        <form action="Registered" onSubmit="return zhuce(this)" >
+            账&emsp;&emsp;号：<input type="text" name="re_name"><br><br>
+            密&emsp;&emsp;码：<input type="password" name="re_pwd"><br><br>
+            确认密码：<input type="password" name="re_rpwd"><br><br>
+            电话号码：<input type="text" name="re_tel"><br><br>
+            所在省份：<input type="text" name="re_address"><br><br>
+            详细地址：<input type="text" name="re_address_all"><br><br>
+            快递收件人：<input type="text" name="re_address_who"><br><br>
+            <button type="submit">提交注册</button>
+        </form>
+        <button onclick="hideWindow()">取&emsp;消</button>
+
+    </div>
+    <!--出现悬浮窗口后,背景变暗-->
+    <div id="shadow" class="shadow_css"></div>
+
 
   </body>
   <script type="text/javascript">
     function denglu(form){
       if(form.name.value==""){
         alert("用户名不能为空！！");
-        form.uname.focus();
+        form.name.focus();
         return false;
       }
       if(form.pwd.value==""){
@@ -135,5 +151,82 @@
         return false;
       }
     }
+    function zhuce(form) {
+        if(form.re_name.value==""){
+            alert("账号不能为空！！");
+            form.re_name.focus();
+            return false;
+        }
+        if(form.re_pwd.value==""){
+            alert("密码不能为空！！");
+            form.re_pwd.focus();
+            return false;
+        }
+        if(form.re_rpwd.value==""){
+            alert("请输入两次密码！！");
+            form.re_rpwd.focus();
+            return false;
+        }
+        if(form.re_tel.value==""){
+            alert("电话不能为空！！");
+            form.re_tel.focus();
+            return false;
+        }
+        if(form.re_address.value==""){
+            alert("地址不能为空！！");
+            form.re_address.focus();
+            return false;
+        }
+        if(form.re_address_all.value==""){
+            alert("详细地址不能为空！！");
+            form.re_address_all.focus();
+            return false;
+        }
+        if(form.re_address_who.value==""){
+            alert("收件人不能为空！！");
+            form.re_address_who.focus();
+            return false;
+        }
+        if(form.re_pwd.value!=form.re_rpwd.value){
+            alert("两次输入密码不同！！");
+            form.re_rpwd.focus();
+            return false;
+        }
+    }
   </script>
+
+
+<%--  /*注册弹窗的样式*/--%>
+
+  <style>
+      .shadow_css {
+          display: none;
+          position: absolute;
+          top: 0%;
+          left: 0%;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          z-index: 10;
+          /* 为mozilla firefox 设置透明度  */
+          -moz-opacity: 0.6;
+          /* 设置透明度 */
+          opacity: .60;
+          /* 为IE 设置透明度  */
+          filter: alpha(opacity=66);
+      }
+
+      .window_css {
+          display: none;
+          position: absolute;
+          top: 20%;
+          left: 25%;
+          width: 50%;
+          height: 60%;
+          border: 3px solid honeydew;
+          background-color: aliceblue;
+          z-index: 11;
+      }
+  </style>
+
 </html>

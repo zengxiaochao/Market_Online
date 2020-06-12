@@ -1,0 +1,199 @@
+.center_con {
+    width: 1200px;
+    height: 350px;
+    margin: 0 auto;
+    /*background: yellow;*/
+}
+
+.center_con .main_menu {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.goods_detail_list {
+    width: 730px;
+    height: 350px;
+}
+
+.goods_detail_list h3 {
+    font-size: 24px;
+    line-height: 24px;
+    color: #666;
+    font-weight: normal;
+}
+
+.goods_detail_list p {
+    color: #666;
+    line-height: 40px;
+}
+
+.prize_bar {
+    height: 72px;
+    background-color: #fff5f5;
+    line-height: 72px;
+}
+
+.prize_bar .show_prize {
+    font-size: 20px;
+    color: #ff3e3e;
+    padding-left: 20px
+}
+
+.prize_bar .show_pirze em {
+    font-style: normal;
+    font-size: 36px;
+    padding-left: 10px
+}
+
+.prize_bar .show_unit {
+    padding-left: 150px;
+}
+
+.goods_num {
+    height: 52px;
+    margin-top: 19px;
+    /*background: yellow;*/
+}
+
+.goods_num .num_name {
+    width: 70px;
+    height: 52px;
+    line-height: 52px;
+}
+
+.goods_num .num_add {
+    width: 75px;
+    height: 50px;
+    border: 1px solid #dddddd;
+}
+
+.goods_num .num_add .num_show {
+    width: 49px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: 0px;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+}
+
+.goods_num .num_add .add,
+.goods_num .num_add .minus {
+    width: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+}
+
+.goods_num .num_add .minus {
+    border-bottom: 0px;
+}
+
+.total {
+    height: 35px;
+    line-height: 35px;
+    margin-top: 25px;
+    /*background: yellow;*/
+}
+
+.total em {
+    font-style: normal;
+    color: #ff3e3e;
+    font-size: 18px
+}
+
+.operate_btn {
+    height: 40px;
+    margin-top: 35px;
+    font-size: 0;
+    position: relative;
+}
+
+.operate_btn .buy_btn {
+    display: inline-block;
+    width: 178px;
+    height: 38px;
+    border: 1px solid #c40000;
+    font-size: 14px;
+    color: #c40000;
+    line-height: 38px;
+    text-align: center;
+    background-color: #ffeded;
+}
+
+.operate_btn .buy_btn {
+    background-color: #c40000;
+    color: #fff;
+    margin-left: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+dl,
+dt,
+form,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+img {
+    border: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}

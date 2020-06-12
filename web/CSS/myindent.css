@@ -1,0 +1,132 @@
+html,
+body,
+div,
+ul,
+ol,
+li,
+p,
+h2,
+h3,
+h4,
+span,
+input,
+textarea,
+select,
+option,
+table,
+tr,
+td,
+dd,
+dt,
+blockquote {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+img {
+    border: none;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.order,
+.orderList {
+    width: 94%;
+    margin: 0 auto 14px;
+    border: 1px solid #DEDEDE;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.orderInfo li {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.orderInfo li img {
+    width: 80px;
+    height: 80px;
+    margin: 12px 0;
+    float: left;
+}
+
+.orderInfo .info {
+    overflow: hidden;
+}
+
+.orderInfo .info p {
+    margin: 15px 0 0 10px;
+}
+
+.orderInfo .info .productName {
+    width: 54%;
+    float: left;
+}
+
+.orderInfo .count,
+.orderInfo .info .count {
+    display: inline-block;
+    text-align: right;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -22px;
+}
+
+.count .unitPrice {
+    display: block;
+    margin-right: 4%;
+    font-size: 16px;
+    color: #DD4832;
+}
+
+.orderPrice .detail {
+    width: 52%;
+    height: auto;
+    float: left;
+    margin: 12px 0 14px 10px;
+}
+
+.detail .amount span {
+    font-size: 18px;
+    color: #DD4832;
+}
+
+.orderPrice {
+    border-top: 1px solid #D3D3D3;
+}
