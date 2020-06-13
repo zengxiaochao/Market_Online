@@ -1,0 +1,100 @@
+table {
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+    width: 100% ;
+}
+
+table td,
+table th {
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 60px;
+}
+
+table thead th {
+    background-color: #CCE8EB;
+    width: 100px;
+}
+
+table tr:nth-child(odd) {
+    background: #fff;
+}
+
+table tr:nth-child(even) {
+    background: #F5FAFA;
+}
+
+.button12 {
+    outline-style: none;
+    /*去除点击时外部框线*/
+    padding: 5px;
+    width: 80%;
+    height: 50%;
+    font-size: 60%;
+    color: white;
+    background: #31B0D5;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 3px 0px rgba(144, 144, 144, 1), 0px 3px 7px rgba(0, 0, 0, .7);
+}
+
+.button12:hover {
+    background: gold;
+}
+
+.button12:active {
+    background: gold;
+    box-shadow: 0 2px #666;
+    transform: translateY(3px);
+    transition-duration: 0s;
+    /*过渡效果持续时间*/
+}
+
+
+
+
+.button10 {
+    display: inline-block;
+    border: none;
+    background: red;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    width: 70%;
+    font-size: 16px;
+    /*可以通过字体控制button大小*/
+    transition: all 0.5s;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button10 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button10 span:after {
+    content: "*";
+    color: white;
+    position: absolute;
+    opacity: 0;
+    /*先设置透明度为0，即不可见*/
+    right: -20px;
+    /*新增箭头出来的方向*/
+    transition: 0.5s;
+}
+
+.button10:hover span {
+    padding-right: 15px;
+    /*新增箭头与前面文字的距离*/
+}
+
+.button10:hover span:after {
+    opacity: 1;
+    /*设置透明度为1，即可见状态*/
+    right: 0;
+}

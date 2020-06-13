@@ -161,6 +161,32 @@ public class GoodsDao {
         }
     }
 
+    /**
+     * 上下架
+     * @param goods
+     * @return
+     */
+    public static boolean goods_ud(Goods goods,String ud) {
+        String name = goods.getGoods_name();
+        Connection c = null;
+        try {
+            c = Connect_Db.getConnection();
+            String sql = "update goods set goods_deleted=? where goods_name=?";
+            PreparedStatement pst = c.prepareStatement(sql);
+            pst.setString(1, ud);
+            pst.setString(2, name);
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Connect_Db.closeConnection(c);
+        }
+    }
+
+
+
     /*
      * 货物删除
      * */

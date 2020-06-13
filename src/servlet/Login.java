@@ -54,7 +54,13 @@ public class Login extends HttpServlet {
 			System.out.println("登陆成功！！！");
 			HttpSession session=request.getSession();
 			session.setAttribute("name",name);
+
+			//管理登陆
+			session.setAttribute("sort","1");
+
+
 			response.sendRedirect("index.jsp");
+
 //			HttpSession session=request.getSession();
 //			session.setAttribute("name", user.getName());
 //			request.getRequestDispatcher("MainPost").forward(request, response);

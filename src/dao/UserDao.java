@@ -37,7 +37,11 @@ public class UserDao  {
 		}
 	}
 
-
+	/**
+	 * 注册
+	 * @param user
+	 * @return
+	 */
 
 	public static boolean User_insert(User user){
 		Connection c = null;

@@ -54,6 +54,8 @@
             List<Goods> good_list = GoodsDao.allgoods_query();
             for (Goods g:good_list)
             {
+                if(g.getProject_deleted().equals("1"))
+                    continue;
                 String goods_name = g.getGoods_name();
               %>
                 <div class="cardBox" onclick="click_line('<%=goods_name %>')">
@@ -105,9 +107,7 @@
                     </a>
                 </div>
                 <iframe src="personal.jsp" width="100%" height="100%" frameborder="0">
-
                 </iframe>
-
             </div>
           <%
           }
