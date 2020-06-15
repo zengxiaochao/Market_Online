@@ -15,7 +15,7 @@ public class Connect_Db {
             e.printStackTrace();
         }
         try{
-            Connection connect = DriverManager.getConnection("jdbc:mysql://rm-bp125gx407ay536yulo.mysql.rds.aliyuncs.com:3306/market?useUnicode=true&characterEncoding=utf-8&useSSL=false","mall_admin","Aa123456");
+            Connection connect = DriverManager.getConnection("localhost:3306/market?useUnicode=true&characterEncoding=utf-8&useSSL=false","mall_admin","Aa123456");
             System.out.println("成功连接数据库！");
             return connect;
         }catch(Exception e){
