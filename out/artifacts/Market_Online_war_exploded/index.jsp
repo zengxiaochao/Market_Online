@@ -1,6 +1,8 @@
 <%@ page import="entity.Goods" %>
 <%@ page import="java.util.List" %>
-<%@ page import="dao.GoodsDao" %><%--
+<%@ page import="dao.GoodsDao" %>
+<%@ page import="dao.UserDao" %>
+<%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Z
   Date: 2020-04-27
@@ -50,10 +52,14 @@
         </div>
         <!-- 零食卡片 -->
         <div style="float: left;width: 98%;height: 1000px;">
+
+
+
           <%
             List<Goods> good_list = GoodsDao.allgoods_query();
             for (Goods g:good_list)
             {
+                //已下架
                 if(g.getProject_deleted().equals("1"))
                     continue;
                 String goods_name = g.getGoods_name();

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/Registered")
@@ -29,17 +30,33 @@ public class Registered extends HttpServlet {
         String re_address=request.getParameter("re_address");
         String re_address_all=request.getParameter("re_address_all");
         String re_address_who=request.getParameter("re_address_who");
-        User user = new User();
-        Address address = new Address();
-        user.setPwd(re_pwd);
-        user.setName(re_name);
-        address.setName(re_name);
-        address.setTel(re_tel);
-        address.setAddress(re_address);
-        address.setAddress_all(re_address_all);
-        address.setAddress_who(re_address_who);
-        UserDao.User_insert(user);
-        AddressDao.Address_insert(address);
-        response.sendRedirect("index.jsp");
+
+
+
+        //更新注册时的账号验证
+        if(UserDao.check_user(re_name)==true)
+        {
+            System.out.println("注册用户已存在！！！");
+            HttpSession session=request.getSession();
+            session.setAttribute("check_user",re_name);
+            response.sendRedirect("check_user.jsp");
+        }
+
+
+        else{
+            User user = new User();
+            Address address = new Address();
+            user.setPwd(re_pwd);
+            user.setName(re_name);
+            address.setName(re_name);
+            address.setTel(re_tel);
+            address.setAddress(re_address);
+            address.setAddress_all(re_address_all);
+            address.setAddress_who(re_address_who);
+            UserDao.User_insert(user);
+            AddressDao.Address_insert(address);
+            response.sendRedirect("index.jsp");
+        }
+
     }
 }

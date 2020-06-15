@@ -12,6 +12,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="jstl-1.2" />
           <element id="library" level="project" name="mysql-connector-java-5.1.39-bin (2)" />
+          <element id="library" level="project" name="easyexcel-2.2.4" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Market_Online/web/Web" />

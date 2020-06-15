@@ -22,5 +22,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.54" level="application_server_libraries" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.39-bin (2)" level="project" />
+    <orderEntry type="library" name="easyexcel-2.2.4" level="project" />
   </component>
 </module>

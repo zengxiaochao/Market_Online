@@ -27,9 +27,6 @@ public class Indent_servlet extends HttpServlet {
         String prize = request.getParameter("prize");
         String goods_name = request.getParameter("goods_name");
 
-
-
-
         HttpSession session = request.getSession();
         String user_name = (String) session.getAttribute("name");
         Address address = AddressDao.Get_Address(user_name);
@@ -37,11 +34,6 @@ public class Indent_servlet extends HttpServlet {
         String address_1 = address.getAddress();
         String address_all = address.getAddress_all();
         String address_who = address.getAddress_who();
-
-
-
-
-
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         String date = df.format(new Date());

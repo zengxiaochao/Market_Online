@@ -9,9 +9,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDao  {
-/*
-* 	根据用户名查找密码
-* */
+
+
+	/**
+	 * 查找是否存在用户
+	 * false——————没有
+	 * true——————已经存在
+	 * @param name
+	 * @return
+	 */
+
+	public static boolean check_user(String name) {
+		Connection con=null;
+		try{
+			con= Connect_Db.getConnection();
+			String sql="select * from user where name=?";
+			PreparedStatement pst=con.prepareStatement(sql);
+			pst.setString(1, name);
+			ResultSet rs=pst.executeQuery();
+			if(rs.next()==false){
+				return false;
+			}else{
+				return true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}finally{
+			Connect_Db.closeConnection(con);
+		}
+	}
+
+
+
+	/**
+	 * 根据用户名查找密码
+	 * @param name
+	 * @return
+	 */
 	public User Get_User(String name) {
 		Connection con=null;
 		try{
