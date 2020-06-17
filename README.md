@@ -22,8 +22,9 @@ IDE:IDEA intellij
 
 ## 部署步骤
 1. mysql新建名为market的数据库，使用项目内存放的sql文件进行表的生成和数据的加载。  
-2. 使用IDEA打开项目主路径，配置tomcat即可。  
-3. 若有缺包，mysql5.7的jar包在我项目的web->WEB-INF->lib中，若还缺包爆红，导入tomcat中的lib中的jar。
+2. 使用IDEA打开项目主路径，配置tomcat即可。 
+3. 更改dao包下的Connect_Db文件中的数据库连接串，localhost为本机、更改数据库、用户名、密码等本机验证。
+4. 若有缺包，mysql5.7的jar包在我项目的web->WEB-INF->lib中，若还缺包爆红，导入tomcat中的lib中的jar。
 
 ## 目录结构描述
 ├── src // 后端  

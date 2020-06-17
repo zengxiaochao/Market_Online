@@ -4,16 +4,17 @@ import dao.AddressDao;
 import dao.UserDao;
 import entity.Address;
 import entity.User;
+import javafx.application.Application;
+import org.apache.catalina.core.ApplicationPart;
 
-import javax.servlet.ServletException;
+import javax.servlet.ServletException;  
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/Registered")
+@MultipartConfig()
 public class Registered extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
@@ -30,8 +31,27 @@ public class Registered extends HttpServlet {
         String re_address=request.getParameter("re_address");
         String re_address_all=request.getParameter("re_address_all");
         String re_address_who=request.getParameter("re_address_who");
+        String icon_url="./image/head.jpg";
+
+        //上传的头像资源获取
+        String path = this.getServletContext().getRealPath("/");
+        Part p = request.getPart("file1");
+        if(p.getContentType().contains("image")){
+            ApplicationPart ap = (ApplicationPart) p;
+
+            //文件名
+            String hz = ap.getSubmittedFileName();
+            String[] hz2 = hz.split("\\.");
+            System.out.println(hz2[hz2.length-1].toString());
+            String fname1 = re_name+"."+hz2[hz2.length-1].toString();
 
 
+            int path_idx = fname1.lastIndexOf("\\")+1;
+            String fname2 = fname1.substring(path_idx,fname1.length());
+            p.write(path+"/image/user_icon/"+fname2);
+            icon_url = "./image/user_icon/"+fname2;
+            System.out.println("文件上传成功！");
+        }
 
         //更新注册时的账号验证
         if(UserDao.check_user(re_name)==true)
@@ -48,6 +68,7 @@ public class Registered extends HttpServlet {
             Address address = new Address();
             user.setPwd(re_pwd);
             user.setName(re_name);
+            user.setIcon_url(icon_url);
             address.setName(re_name);
             address.setTel(re_tel);
             address.setAddress(re_address);

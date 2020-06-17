@@ -1,4 +1,5 @@
-<%--
+<%@ page import="entity.User" %>
+<%@ page import="dao.UserDao" %><%--
   Created by IntelliJ IDEA.
   User: Z
   Date: 2020-04-30
@@ -30,7 +31,7 @@
 
         <center>
             <div class="c1">
-                <img src="./image/head.jpg" alt="">
+                <img src=<%=UserDao.Get_icon_url((String) session.getAttribute("name"))%> alt="">
             </div>
             <h1>
                 <%=session.getAttribute("name") %>

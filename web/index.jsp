@@ -126,7 +126,7 @@
 <%--  注册弹窗--%>
     <!--悬浮窗口-->
     <div id="window" class="window_css" style="text-align:center;">
-        <form action="Registered" onSubmit="return zhuce(this)" >
+        <form action="Registered" onSubmit="return zhuce(this)" enctype="multipart/form-data" method="post">
             账&emsp;&emsp;号：<input type="text" name="re_name"><br><br>
             密&emsp;&emsp;码：<input type="password" name="re_pwd"><br><br>
             确认密码：<input type="password" name="re_rpwd"><br><br>
@@ -134,6 +134,8 @@
             所在省份：<input type="text" name="re_address"><br><br>
             详细地址：<input type="text" name="re_address_all"><br><br>
             快递收件人：<input type="text" name="re_address_who"><br><br>
+            <%--上传头像--%>
+            头像上传：<input type="file" name="file1" id="file1"><br><br>
             <button type="submit">提交注册</button>
         </form>
         <button onclick="hideWindow()">取&emsp;消</button>
